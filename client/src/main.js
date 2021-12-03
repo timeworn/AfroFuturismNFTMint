@@ -7,6 +7,7 @@ import Web3 from "web3/lib"
 import Toast from "vue-toastification";
 
 import "vue-toastification/dist/index.css";
+import router from './router'
 
 Vue.config.productionTip = false
 
@@ -18,6 +19,7 @@ Vue.use(Toast, {
 
 new Vue({
   store,
+
   beforeCreate() {
     const { ethereum } = window;
     if(ethereum && ethereum.isMetaMask) {
@@ -25,5 +27,7 @@ new Vue({
       store.commit('init')
     }
   },
+
+  router,
   render: (h) => h(App)
 }).$mount("#app");
